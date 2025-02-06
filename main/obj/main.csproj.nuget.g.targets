@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)vosk\0.3.38\build\Vosk.targets" Condition="Exists('$(NuGetPackageRoot)vosk\0.3.38\build\Vosk.targets')" />
+    <Import Project="$(NuGetPackageRoot)rhino\3.0.4\build\net8.0\Rhino.targets" Condition="Exists('$(NuGetPackageRoot)rhino\3.0.4\build\net8.0\Rhino.targets')" />
+    <Import Project="$(NuGetPackageRoot)porcupine\3.0.5\build\net8.0\Porcupine.targets" Condition="Exists('$(NuGetPackageRoot)porcupine\3.0.5\build\net8.0\Porcupine.targets')" />
+    <Import Project="$(NuGetPackageRoot)audiocontrol\1.0.1\build\AudioControl.targets" Condition="Exists('$(NuGetPackageRoot)audiocontrol\1.0.1\build\AudioControl.targets')" />
+  </ImportGroup>
+</Project>

@@ -1,0 +1,86 @@
+## Файли Visual Studio ##
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Файли проектів Visual Studio ##
+*.builds
+*.filters
+*.vcxproj
+*.vcxproj.user
+*.vcxproj.filters
+*.vcxitems
+*.vcxitems.user
+
+## Артефакти збірки ##
+*.obj
+*.exe
+*.dll
+*.pdb
+*.ilk
+*.idb
+*.ipch
+*.pch
+*.manifest
+*.tlog
+*.log
+*.vspscc
+*.vspxproj
+*.unsuccessfulbuild
+
+# Бінарні файли
+*.bin
+*.elf
+*.map
+*.hex
+
+## Папки збірки ##
+vosk-model-small-ru-0.22/
+Debug/
+Release/
+x64/
+x86/
+build/
+ipch/
+out/
+temp/
+
+## Файли конфігурації ##
+*.props
+*.natvis
+
+## Пакети NuGet ##
+packages/
+*.nupkg
+project.lock.json
+
+## Файли резервного копіювання ##
+*.bak
+*.old
+
+# Кеш Visual Studio Code
+.vscode/
+.vs/
+
+# Блокування файлів
+*.lock
+
+# Конфігураційні файли IDE
+*.code-workspace
+
+## Логи та тимчасові файли ##
+*.log
+*.tmp
+*.swp
+
+# Інші специфічні файли
+*.pyc
+*.class
+*.moc
+
+# Windows специфічні
+Thumbs.db
+desktop.ini

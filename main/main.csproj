@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.Speech">
+        <HintPath>..\..\..\Programs\Pulse_Programs\Assembly\Microsoft.Speech.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AudioControl" Version="1.0.1" />
+      <PackageReference Include="NAudio" Version="2.2.1" />
+      <PackageReference Include="Picovoice" Version="3.0.4" />
+      <PackageReference Include="Porcupine" Version="3.0.5" />
+      <PackageReference Include="System.Speech" Version="9.0.1" />
+      <PackageReference Include="Vosk" Version="0.3.38" />
+    </ItemGroup>
+
+</Project>

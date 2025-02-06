@@ -1,0 +1,1038 @@
+{
+  "version": 3,
+  "targets": {
+    "net9.0": {
+      "AudioControl/1.0.1": {
+        "type": "package",
+        "build": {
+          "build/AudioControl.targets": {}
+        }
+      },
+      "Microsoft.NETCore.Platforms/3.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/_._": {}
+        }
+      },
+      "Microsoft.Win32.Registry/4.7.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.AccessControl": "4.7.0",
+          "System.Security.Principal.Windows": "4.7.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "NAudio/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.Asio": "2.2.1",
+          "NAudio.Core": "2.2.1",
+          "NAudio.Midi": "2.2.1",
+          "NAudio.Wasapi": "2.2.1",
+          "NAudio.WinMM": "2.2.1"
+        },
+        "compile": {
+          "lib/net6.0/NAudio.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/NAudio.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.Asio/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.7.0",
+          "NAudio.Core": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.Asio.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Asio.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.Core/2.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NAudio.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.Midi/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.Core": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.Midi.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Midi.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.Wasapi/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.Core": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.Wasapi.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Wasapi.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.WinMM/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.7.0",
+          "NAudio.Core": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.WinMM.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.WinMM.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Picovoice/3.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Porcupine": "3.0.4",
+          "Rhino": "3.0.4"
+        },
+        "compile": {
+          "lib/net8.0/Picovoice.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Picovoice.dll": {}
+        }
+      },
+      "Porcupine/3.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Porcupine.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Porcupine.dll": {}
+        },
+        "build": {
+          "build/net8.0/Porcupine.targets": {}
+        }
+      },
+      "Rhino/3.0.4": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Rhino.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Rhino.dll": {}
+        },
+        "build": {
+          "build/net8.0/Rhino.targets": {}
+        }
+      },
+      "System.Security.AccessControl/4.7.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.0",
+          "System.Security.Principal.Windows": "4.7.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Security.AccessControl.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.AccessControl.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "System.Security.Principal.Windows/4.7.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp3.0/System.Security.Principal.Windows.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Principal.Windows.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "System.Speech/9.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net9.0/System.Speech.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/System.Speech.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net9.0/System.Speech.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "Vosk/0.3.38": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Vosk.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Vosk.dll": {}
+        },
+        "build": {
+          "build/Vosk.targets": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AudioControl/1.0.1": {
+      "sha512": "zXMYEi/LULEL1bCAnokJ5/bnZzrGc/MekTtvL2mrtX7mCe7i3ieOI57azC1COC5C7EKxZT9imWBcRqO03SMDZQ==",
+      "type": "package",
+      "path": "audiocontrol/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "AudioControlNative.dll",
+        "audiocontrol.1.0.1.nupkg.sha512",
+        "audiocontrol.nuspec",
+        "build/AudioControl.targets",
+        "lib/net46/AudioControl.dll"
+      ]
+    },
+    "Microsoft.NETCore.Platforms/3.1.0": {
+      "sha512": "z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
+      "type": "package",
+      "path": "microsoft.netcore.platforms/3.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netstandard1.0/_._",
+        "microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+        "microsoft.netcore.platforms.nuspec",
+        "runtime.json",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Win32.Registry/4.7.0": {
+      "sha512": "KSrRMb5vNi0CWSGG1++id2ZOs/1QhRqROt+qgbEAdQuGjGrFcl4AOl4/exGPUYz2wUnU42nvJqon1T3U0kPXLA==",
+      "type": "package",
+      "path": "microsoft.win32.registry/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net46/Microsoft.Win32.Registry.dll",
+        "lib/net461/Microsoft.Win32.Registry.dll",
+        "lib/net461/Microsoft.Win32.Registry.xml",
+        "lib/netstandard1.3/Microsoft.Win32.Registry.dll",
+        "lib/netstandard2.0/Microsoft.Win32.Registry.dll",
+        "lib/netstandard2.0/Microsoft.Win32.Registry.xml",
+        "microsoft.win32.registry.4.7.0.nupkg.sha512",
+        "microsoft.win32.registry.nuspec",
+        "ref/net46/Microsoft.Win32.Registry.dll",
+        "ref/net461/Microsoft.Win32.Registry.dll",
+        "ref/net461/Microsoft.Win32.Registry.xml",
+        "ref/net472/Microsoft.Win32.Registry.dll",
+        "ref/net472/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/Microsoft.Win32.Registry.dll",
+        "ref/netstandard1.3/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/de/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/es/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/fr/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/it/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/ja/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/ko/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/ru/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/zh-hans/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/zh-hant/Microsoft.Win32.Registry.xml",
+        "ref/netstandard2.0/Microsoft.Win32.Registry.dll",
+        "ref/netstandard2.0/Microsoft.Win32.Registry.xml",
+        "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll",
+        "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.xml",
+        "runtimes/win/lib/net46/Microsoft.Win32.Registry.dll",
+        "runtimes/win/lib/net461/Microsoft.Win32.Registry.dll",
+        "runtimes/win/lib/net461/Microsoft.Win32.Registry.xml",
+        "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Registry.dll",
+        "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll",
+        "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.xml",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "NAudio/2.2.1": {
+      "sha512": "c0DzwiyyklM0TP39Y7RObwO3QkWecgM6H60ikiEnsV/aEAJPbj5MFCLaD8BSfKuZe0HGuh9GRGWWlJmSxDc9MA==",
+      "type": "package",
+      "path": "naudio/2.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net472/NAudio.dll",
+        "lib/net472/NAudio.xml",
+        "lib/net6.0-windows7.0/NAudio.dll",
+        "lib/net6.0-windows7.0/NAudio.xml",
+        "lib/net6.0/NAudio.dll",
+        "lib/net6.0/NAudio.xml",
+        "lib/netcoreapp3.1/NAudio.dll",
+        "lib/netcoreapp3.1/NAudio.xml",
+        "license.txt",
+        "naudio-icon.png",
+        "naudio.2.2.1.nupkg.sha512",
+        "naudio.nuspec"
+      ]
+    },
+    "NAudio.Asio/2.2.1": {
+      "sha512": "hQglyOT5iT3XuGpBP8ZG0+aoqwRfidHjTNehpoWwX0g6KJEgtH2VaqM2nuJ2mheKZa/IBqB4YQTZVvrIapzfOA==",
+      "type": "package",
+      "path": "naudio.asio/2.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/NAudio.Asio.dll",
+        "lib/netstandard2.0/NAudio.Asio.xml",
+        "naudio-icon.png",
+        "naudio.asio.2.2.1.nupkg.sha512",
+        "naudio.asio.nuspec"
+      ]
+    },
+    "NAudio.Core/2.2.1": {
+      "sha512": "GgkdP6K/7FqXFo7uHvoqGZTJvW4z8g2IffhOO4JHaLzKCdDOUEzVKtveoZkCuUX8eV2HAINqi7VFqlFndrnz/g==",
+      "type": "package",
+      "path": "naudio.core/2.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/NAudio.Core.dll",
+        "lib/netstandard2.0/NAudio.Core.xml",
+        "naudio-icon.png",
+        "naudio.core.2.2.1.nupkg.sha512",
+        "naudio.core.nuspec"
+      ]
+    },
+    "NAudio.Midi/2.2.1": {
+      "sha512": "6r23ylGo5aeP02WFXsPquz0T0hFJWyh+7t++tz19tc3Kr38NHm+Z9j+FiAv+xkH8tZqXJqus9Q8p6u7bidIgbw==",
+      "type": "package",
+      "path": "naudio.midi/2.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/NAudio.Midi.dll",
+        "lib/netstandard2.0/NAudio.Midi.xml",
+        "naudio-icon.png",
+        "naudio.midi.2.2.1.nupkg.sha512",
+        "naudio.midi.nuspec"
+      ]
+    },
+    "NAudio.Wasapi/2.2.1": {
+      "sha512": "lFfXoqacZZe0WqNChJgGYI+XV/n/61LzPHT3C1CJp4khoxeo2sziyX5wzNYWeCMNbsWxFvT3b3iXeY1UYjBhZw==",
+      "type": "package",
+      "path": "naudio.wasapi/2.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/NAudio.Wasapi.dll",
+        "lib/netstandard2.0/NAudio.Wasapi.xml",
+        "lib/uap10.0.18362/NAudio.Wasapi.dll",
+        "lib/uap10.0.18362/NAudio.Wasapi.pri",
+        "lib/uap10.0.18362/NAudio.Wasapi.xml",
+        "naudio-icon.png",
+        "naudio.wasapi.2.2.1.nupkg.sha512",
+        "naudio.wasapi.nuspec"
+      ]
+    },
+    "NAudio.WinMM/2.2.1": {
+      "sha512": "xFHRFwH4x6aq3IxRbewvO33ugJRvZFEOfO62i7uQJRUNW2cnu6BeBTHUS0JD5KBucZbHZaYqxQG8dwZ47ezQuQ==",
+      "type": "package",
+      "path": "naudio.winmm/2.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/NAudio.WinMM.dll",
+        "lib/netstandard2.0/NAudio.WinMM.xml",
+        "naudio-icon.png",
+        "naudio.winmm.2.2.1.nupkg.sha512",
+        "naudio.winmm.nuspec"
+      ]
+    },
+    "Picovoice/3.0.4": {
+      "sha512": "Nbi8udf3ZIOxCxKVvT4fDOIb9v3sMfpGgi4hHyAOtJAUHPX1FBprBnL4WUE1+WHYC6drw+ZAZPOyPL9U2U9s6g==",
+      "type": "package",
+      "path": "picovoice/3.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/Picovoice.dll",
+        "lib/net8.0/Picovoice.dll",
+        "lib/netcoreapp3.0/Picovoice.dll",
+        "lib/netstandard2.0/Picovoice.dll",
+        "picovoice.3.0.4.nupkg.sha512",
+        "picovoice.nuspec",
+        "pv_circle_512.png"
+      ]
+    },
+    "Porcupine/3.0.5": {
+      "sha512": "TNXbVvJf5WVrjioR0W0u+zAAfqx2AtVPqprJfcZfmgyQgxuOk2fze5W4nmiRmr6R0Ylxn1ZkjLzUaZatC5uDOA==",
+      "type": "package",
+      "path": "porcupine/3.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/net6.0/Porcupine.targets",
+        "build/net6.0/lib/common/porcupine_params.pv",
+        "build/net6.0/lib/linux/x86_64/libpv_porcupine.so",
+        "build/net6.0/lib/mac/arm64/libpv_porcupine.dylib",
+        "build/net6.0/lib/mac/x86_64/libpv_porcupine.dylib",
+        "build/net6.0/lib/raspberry-pi/cortex-a53-aarch64/libpv_porcupine.so",
+        "build/net6.0/lib/raspberry-pi/cortex-a53/libpv_porcupine.so",
+        "build/net6.0/lib/raspberry-pi/cortex-a72-aarch64/libpv_porcupine.so",
+        "build/net6.0/lib/raspberry-pi/cortex-a72/libpv_porcupine.so",
+        "build/net6.0/lib/raspberry-pi/cortex-a76-aarch64/libpv_porcupine.so",
+        "build/net6.0/lib/raspberry-pi/cortex-a76/libpv_porcupine.so",
+        "build/net6.0/lib/windows/amd64/libpv_porcupine.dll",
+        "build/net6.0/lib/windows/arm64/libpv_porcupine.dll",
+        "build/net6.0/resources/keyword_files/linux/alexa_linux.ppn",
+        "build/net6.0/resources/keyword_files/linux/americano_linux.ppn",
+        "build/net6.0/resources/keyword_files/linux/blueberry_linux.ppn",
+        "build/net6.0/resources/keyword_files/linux/bumblebee_linux.ppn",
+        "build/net6.0/resources/keyword_files/linux/computer_linux.ppn",
+        "build/net6.0/resources/keyword_files/linux/grapefruit_linux.ppn",
+        "build/net6.0/resources/keyword_files/linux/grasshopper_linux.ppn",
+        "build/net6.0/resources/keyword_files/linux/hey google_linux.ppn",
+        "build/net6.0/resources/keyword_files/linux/hey siri_linux.ppn",
+        "build/net6.0/resources/keyword_files/linux/jarvis_linux.ppn",
+        "build/net6.0/resources/keyword_files/linux/ok google_linux.ppn",
+        "build/net6.0/resources/keyword_files/linux/picovoice_linux.ppn",
+        "build/net6.0/resources/keyword_files/linux/porcupine_linux.ppn",
+        "build/net6.0/resources/keyword_files/linux/terminator_linux.ppn",
+        "build/net6.0/resources/keyword_files/mac/alexa_mac.ppn",
+        "build/net6.0/resources/keyword_files/mac/americano_mac.ppn",
+        "build/net6.0/resources/keyword_files/mac/blueberry_mac.ppn",
+        "build/net6.0/resources/keyword_files/mac/bumblebee_mac.ppn",
+        "build/net6.0/resources/keyword_files/mac/computer_mac.ppn",
+        "build/net6.0/resources/keyword_files/mac/grapefruit_mac.ppn",
+        "build/net6.0/resources/keyword_files/mac/grasshopper_mac.ppn",
+        "build/net6.0/resources/keyword_files/mac/hey google_mac.ppn",
+        "build/net6.0/resources/keyword_files/mac/hey siri_mac.ppn",
+        "build/net6.0/resources/keyword_files/mac/jarvis_mac.ppn",
+        "build/net6.0/resources/keyword_files/mac/ok google_mac.ppn",
+        "build/net6.0/resources/keyword_files/mac/picovoice_mac.ppn",
+        "build/net6.0/resources/keyword_files/mac/porcupine_mac.ppn",
+        "build/net6.0/resources/keyword_files/mac/terminator_mac.ppn",
+        "build/net6.0/resources/keyword_files/raspberry-pi/alexa_raspberry-pi.ppn",
+        "build/net6.0/resources/keyword_files/raspberry-pi/americano_raspberry-pi.ppn",
+        "build/net6.0/resources/keyword_files/raspberry-pi/blueberry_raspberry-pi.ppn",
+        "build/net6.0/resources/keyword_files/raspberry-pi/bumblebee_raspberry-pi.ppn",
+        "build/net6.0/resources/keyword_files/raspberry-pi/computer_raspberry-pi.ppn",
+        "build/net6.0/resources/keyword_files/raspberry-pi/grapefruit_raspberry-pi.ppn",
+        "build/net6.0/resources/keyword_files/raspberry-pi/grasshopper_raspberry-pi.ppn",
+        "build/net6.0/resources/keyword_files/raspberry-pi/hey google_raspberry-pi.ppn",
+        "build/net6.0/resources/keyword_files/raspberry-pi/hey siri_raspberry-pi.ppn",
+        "build/net6.0/resources/keyword_files/raspberry-pi/jarvis_raspberry-pi.ppn",
+        "build/net6.0/resources/keyword_files/raspberry-pi/ok google_raspberry-pi.ppn",
+        "build/net6.0/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn",
+        "build/net6.0/resources/keyword_files/raspberry-pi/porcupine_raspberry-pi.ppn",
+        "build/net6.0/resources/keyword_files/raspberry-pi/terminator_raspberry-pi.ppn",
+        "build/net6.0/resources/keyword_files/windows/alexa_windows.ppn",
+        "build/net6.0/resources/keyword_files/windows/americano_windows.ppn",
+        "build/net6.0/resources/keyword_files/windows/blueberry_windows.ppn",
+        "build/net6.0/resources/keyword_files/windows/bumblebee_windows.ppn",
+        "build/net6.0/resources/keyword_files/windows/computer_windows.ppn",
+        "build/net6.0/resources/keyword_files/windows/grapefruit_windows.ppn",
+        "build/net6.0/resources/keyword_files/windows/grasshopper_windows.ppn",
+        "build/net6.0/resources/keyword_files/windows/hey google_windows.ppn",
+        "build/net6.0/resources/keyword_files/windows/hey siri_windows.ppn",
+        "build/net6.0/resources/keyword_files/windows/jarvis_windows.ppn",
+        "build/net6.0/resources/keyword_files/windows/ok google_windows.ppn",
+        "build/net6.0/resources/keyword_files/windows/picovoice_windows.ppn",
+        "build/net6.0/resources/keyword_files/windows/porcupine_windows.ppn",
+        "build/net6.0/resources/keyword_files/windows/terminator_windows.ppn",
+        "build/net8.0/Porcupine.targets",
+        "build/net8.0/lib/common/porcupine_params.pv",
+        "build/net8.0/lib/linux/x86_64/libpv_porcupine.so",
+        "build/net8.0/lib/mac/arm64/libpv_porcupine.dylib",
+        "build/net8.0/lib/mac/x86_64/libpv_porcupine.dylib",
+        "build/net8.0/lib/raspberry-pi/cortex-a53-aarch64/libpv_porcupine.so",
+        "build/net8.0/lib/raspberry-pi/cortex-a53/libpv_porcupine.so",
+        "build/net8.0/lib/raspberry-pi/cortex-a72-aarch64/libpv_porcupine.so",
+        "build/net8.0/lib/raspberry-pi/cortex-a72/libpv_porcupine.so",
+        "build/net8.0/lib/raspberry-pi/cortex-a76-aarch64/libpv_porcupine.so",
+        "build/net8.0/lib/raspberry-pi/cortex-a76/libpv_porcupine.so",
+        "build/net8.0/lib/windows/amd64/libpv_porcupine.dll",
+        "build/net8.0/lib/windows/arm64/libpv_porcupine.dll",
+        "build/net8.0/resources/keyword_files/linux/alexa_linux.ppn",
+        "build/net8.0/resources/keyword_files/linux/americano_linux.ppn",
+        "build/net8.0/resources/keyword_files/linux/blueberry_linux.ppn",
+        "build/net8.0/resources/keyword_files/linux/bumblebee_linux.ppn",
+        "build/net8.0/resources/keyword_files/linux/computer_linux.ppn",
+        "build/net8.0/resources/keyword_files/linux/grapefruit_linux.ppn",
+        "build/net8.0/resources/keyword_files/linux/grasshopper_linux.ppn",
+        "build/net8.0/resources/keyword_files/linux/hey google_linux.ppn",
+        "build/net8.0/resources/keyword_files/linux/hey siri_linux.ppn",
+        "build/net8.0/resources/keyword_files/linux/jarvis_linux.ppn",
+        "build/net8.0/resources/keyword_files/linux/ok google_linux.ppn",
+        "build/net8.0/resources/keyword_files/linux/picovoice_linux.ppn",
+        "build/net8.0/resources/keyword_files/linux/porcupine_linux.ppn",
+        "build/net8.0/resources/keyword_files/linux/terminator_linux.ppn",
+        "build/net8.0/resources/keyword_files/mac/alexa_mac.ppn",
+        "build/net8.0/resources/keyword_files/mac/americano_mac.ppn",
+        "build/net8.0/resources/keyword_files/mac/blueberry_mac.ppn",
+        "build/net8.0/resources/keyword_files/mac/bumblebee_mac.ppn",
+        "build/net8.0/resources/keyword_files/mac/computer_mac.ppn",
+        "build/net8.0/resources/keyword_files/mac/grapefruit_mac.ppn",
+        "build/net8.0/resources/keyword_files/mac/grasshopper_mac.ppn",
+        "build/net8.0/resources/keyword_files/mac/hey google_mac.ppn",
+        "build/net8.0/resources/keyword_files/mac/hey siri_mac.ppn",
+        "build/net8.0/resources/keyword_files/mac/jarvis_mac.ppn",
+        "build/net8.0/resources/keyword_files/mac/ok google_mac.ppn",
+        "build/net8.0/resources/keyword_files/mac/picovoice_mac.ppn",
+        "build/net8.0/resources/keyword_files/mac/porcupine_mac.ppn",
+        "build/net8.0/resources/keyword_files/mac/terminator_mac.ppn",
+        "build/net8.0/resources/keyword_files/raspberry-pi/alexa_raspberry-pi.ppn",
+        "build/net8.0/resources/keyword_files/raspberry-pi/americano_raspberry-pi.ppn",
+        "build/net8.0/resources/keyword_files/raspberry-pi/blueberry_raspberry-pi.ppn",
+        "build/net8.0/resources/keyword_files/raspberry-pi/bumblebee_raspberry-pi.ppn",
+        "build/net8.0/resources/keyword_files/raspberry-pi/computer_raspberry-pi.ppn",
+        "build/net8.0/resources/keyword_files/raspberry-pi/grapefruit_raspberry-pi.ppn",
+        "build/net8.0/resources/keyword_files/raspberry-pi/grasshopper_raspberry-pi.ppn",
+        "build/net8.0/resources/keyword_files/raspberry-pi/hey google_raspberry-pi.ppn",
+        "build/net8.0/resources/keyword_files/raspberry-pi/hey siri_raspberry-pi.ppn",
+        "build/net8.0/resources/keyword_files/raspberry-pi/jarvis_raspberry-pi.ppn",
+        "build/net8.0/resources/keyword_files/raspberry-pi/ok google_raspberry-pi.ppn",
+        "build/net8.0/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn",
+        "build/net8.0/resources/keyword_files/raspberry-pi/porcupine_raspberry-pi.ppn",
+        "build/net8.0/resources/keyword_files/raspberry-pi/terminator_raspberry-pi.ppn",
+        "build/net8.0/resources/keyword_files/windows/alexa_windows.ppn",
+        "build/net8.0/resources/keyword_files/windows/americano_windows.ppn",
+        "build/net8.0/resources/keyword_files/windows/blueberry_windows.ppn",
+        "build/net8.0/resources/keyword_files/windows/bumblebee_windows.ppn",
+        "build/net8.0/resources/keyword_files/windows/computer_windows.ppn",
+        "build/net8.0/resources/keyword_files/windows/grapefruit_windows.ppn",
+        "build/net8.0/resources/keyword_files/windows/grasshopper_windows.ppn",
+        "build/net8.0/resources/keyword_files/windows/hey google_windows.ppn",
+        "build/net8.0/resources/keyword_files/windows/hey siri_windows.ppn",
+        "build/net8.0/resources/keyword_files/windows/jarvis_windows.ppn",
+        "build/net8.0/resources/keyword_files/windows/ok google_windows.ppn",
+        "build/net8.0/resources/keyword_files/windows/picovoice_windows.ppn",
+        "build/net8.0/resources/keyword_files/windows/porcupine_windows.ppn",
+        "build/net8.0/resources/keyword_files/windows/terminator_windows.ppn",
+        "build/netcoreapp3.0/Porcupine.targets",
+        "build/netcoreapp3.0/lib/common/porcupine_params.pv",
+        "build/netcoreapp3.0/lib/mac/x86_64/libpv_porcupine.dylib",
+        "build/netcoreapp3.0/lib/windows/amd64/libpv_porcupine.dll",
+        "build/netcoreapp3.0/resources/keyword_files/linux/alexa_linux.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/linux/americano_linux.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/linux/blueberry_linux.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/linux/bumblebee_linux.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/linux/computer_linux.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/linux/grapefruit_linux.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/linux/grasshopper_linux.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/linux/hey google_linux.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/linux/hey siri_linux.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/linux/jarvis_linux.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/linux/ok google_linux.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/linux/picovoice_linux.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/linux/porcupine_linux.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/linux/terminator_linux.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/mac/alexa_mac.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/mac/americano_mac.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/mac/blueberry_mac.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/mac/bumblebee_mac.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/mac/computer_mac.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/mac/grapefruit_mac.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/mac/grasshopper_mac.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/mac/hey google_mac.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/mac/hey siri_mac.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/mac/jarvis_mac.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/mac/ok google_mac.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/mac/picovoice_mac.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/mac/porcupine_mac.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/mac/terminator_mac.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/raspberry-pi/alexa_raspberry-pi.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/raspberry-pi/americano_raspberry-pi.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/raspberry-pi/blueberry_raspberry-pi.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/raspberry-pi/bumblebee_raspberry-pi.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/raspberry-pi/computer_raspberry-pi.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/raspberry-pi/grapefruit_raspberry-pi.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/raspberry-pi/grasshopper_raspberry-pi.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/raspberry-pi/hey google_raspberry-pi.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/raspberry-pi/hey siri_raspberry-pi.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/raspberry-pi/jarvis_raspberry-pi.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/raspberry-pi/ok google_raspberry-pi.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/raspberry-pi/porcupine_raspberry-pi.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/raspberry-pi/terminator_raspberry-pi.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/windows/alexa_windows.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/windows/americano_windows.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/windows/blueberry_windows.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/windows/bumblebee_windows.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/windows/computer_windows.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/windows/grapefruit_windows.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/windows/grasshopper_windows.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/windows/hey google_windows.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/windows/hey siri_windows.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/windows/jarvis_windows.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/windows/ok google_windows.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/windows/picovoice_windows.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/windows/porcupine_windows.ppn",
+        "build/netcoreapp3.0/resources/keyword_files/windows/terminator_windows.ppn",
+        "build/netstandard2.0/Porcupine.targets",
+        "build/netstandard2.0/lib/common/porcupine_params.pv",
+        "build/netstandard2.0/libpv_porcupine.dll",
+        "build/netstandard2.0/libpv_porcupine.dylib",
+        "build/netstandard2.0/resources/keyword_files/linux/alexa_linux.ppn",
+        "build/netstandard2.0/resources/keyword_files/linux/americano_linux.ppn",
+        "build/netstandard2.0/resources/keyword_files/linux/blueberry_linux.ppn",
+        "build/netstandard2.0/resources/keyword_files/linux/bumblebee_linux.ppn",
+        "build/netstandard2.0/resources/keyword_files/linux/computer_linux.ppn",
+        "build/netstandard2.0/resources/keyword_files/linux/grapefruit_linux.ppn",
+        "build/netstandard2.0/resources/keyword_files/linux/grasshopper_linux.ppn",
+        "build/netstandard2.0/resources/keyword_files/linux/hey google_linux.ppn",
+        "build/netstandard2.0/resources/keyword_files/linux/hey siri_linux.ppn",
+        "build/netstandard2.0/resources/keyword_files/linux/jarvis_linux.ppn",
+        "build/netstandard2.0/resources/keyword_files/linux/ok google_linux.ppn",
+        "build/netstandard2.0/resources/keyword_files/linux/picovoice_linux.ppn",
+        "build/netstandard2.0/resources/keyword_files/linux/porcupine_linux.ppn",
+        "build/netstandard2.0/resources/keyword_files/linux/terminator_linux.ppn",
+        "build/netstandard2.0/resources/keyword_files/mac/alexa_mac.ppn",
+        "build/netstandard2.0/resources/keyword_files/mac/americano_mac.ppn",
+        "build/netstandard2.0/resources/keyword_files/mac/blueberry_mac.ppn",
+        "build/netstandard2.0/resources/keyword_files/mac/bumblebee_mac.ppn",
+        "build/netstandard2.0/resources/keyword_files/mac/computer_mac.ppn",
+        "build/netstandard2.0/resources/keyword_files/mac/grapefruit_mac.ppn",
+        "build/netstandard2.0/resources/keyword_files/mac/grasshopper_mac.ppn",
+        "build/netstandard2.0/resources/keyword_files/mac/hey google_mac.ppn",
+        "build/netstandard2.0/resources/keyword_files/mac/hey siri_mac.ppn",
+        "build/netstandard2.0/resources/keyword_files/mac/jarvis_mac.ppn",
+        "build/netstandard2.0/resources/keyword_files/mac/ok google_mac.ppn",
+        "build/netstandard2.0/resources/keyword_files/mac/picovoice_mac.ppn",
+        "build/netstandard2.0/resources/keyword_files/mac/porcupine_mac.ppn",
+        "build/netstandard2.0/resources/keyword_files/mac/terminator_mac.ppn",
+        "build/netstandard2.0/resources/keyword_files/raspberry-pi/alexa_raspberry-pi.ppn",
+        "build/netstandard2.0/resources/keyword_files/raspberry-pi/americano_raspberry-pi.ppn",
+        "build/netstandard2.0/resources/keyword_files/raspberry-pi/blueberry_raspberry-pi.ppn",
+        "build/netstandard2.0/resources/keyword_files/raspberry-pi/bumblebee_raspberry-pi.ppn",
+        "build/netstandard2.0/resources/keyword_files/raspberry-pi/computer_raspberry-pi.ppn",
+        "build/netstandard2.0/resources/keyword_files/raspberry-pi/grapefruit_raspberry-pi.ppn",
+        "build/netstandard2.0/resources/keyword_files/raspberry-pi/grasshopper_raspberry-pi.ppn",
+        "build/netstandard2.0/resources/keyword_files/raspberry-pi/hey google_raspberry-pi.ppn",
+        "build/netstandard2.0/resources/keyword_files/raspberry-pi/hey siri_raspberry-pi.ppn",
+        "build/netstandard2.0/resources/keyword_files/raspberry-pi/jarvis_raspberry-pi.ppn",
+        "build/netstandard2.0/resources/keyword_files/raspberry-pi/ok google_raspberry-pi.ppn",
+        "build/netstandard2.0/resources/keyword_files/raspberry-pi/picovoice_raspberry-pi.ppn",
+        "build/netstandard2.0/resources/keyword_files/raspberry-pi/porcupine_raspberry-pi.ppn",
+        "build/netstandard2.0/resources/keyword_files/raspberry-pi/terminator_raspberry-pi.ppn",
+        "build/netstandard2.0/resources/keyword_files/windows/alexa_windows.ppn",
+        "build/netstandard2.0/resources/keyword_files/windows/americano_windows.ppn",
+        "build/netstandard2.0/resources/keyword_files/windows/blueberry_windows.ppn",
+        "build/netstandard2.0/resources/keyword_files/windows/bumblebee_windows.ppn",
+        "build/netstandard2.0/resources/keyword_files/windows/computer_windows.ppn",
+        "build/netstandard2.0/resources/keyword_files/windows/grapefruit_windows.ppn",
+        "build/netstandard2.0/resources/keyword_files/windows/grasshopper_windows.ppn",
+        "build/netstandard2.0/resources/keyword_files/windows/hey google_windows.ppn",
+        "build/netstandard2.0/resources/keyword_files/windows/hey siri_windows.ppn",
+        "build/netstandard2.0/resources/keyword_files/windows/jarvis_windows.ppn",
+        "build/netstandard2.0/resources/keyword_files/windows/ok google_windows.ppn",
+        "build/netstandard2.0/resources/keyword_files/windows/picovoice_windows.ppn",
+        "build/netstandard2.0/resources/keyword_files/windows/porcupine_windows.ppn",
+        "build/netstandard2.0/resources/keyword_files/windows/terminator_windows.ppn",
+        "lib/net6.0/Porcupine.dll",
+        "lib/net8.0/Porcupine.dll",
+        "lib/netcoreapp3.0/Porcupine.dll",
+        "lib/netstandard2.0/Porcupine.dll",
+        "porcupine.3.0.5.nupkg.sha512",
+        "porcupine.nuspec",
+        "pv_circle_512.png"
+      ]
+    },
+    "Rhino/3.0.4": {
+      "sha512": "PvCJv+3hjyB+8QKiF4iLNv8hYtGeXqp9AXHABLs1jppP6LnFH7QbEsmcosJn7KbkFG2fa61Hf0nb3CUCAi8MKw==",
+      "type": "package",
+      "path": "rhino/3.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/net6.0/Rhino.targets",
+        "build/net6.0/lib/common/rhino_params.pv",
+        "build/net6.0/lib/linux/x86_64/libpv_rhino.so",
+        "build/net6.0/lib/mac/arm64/libpv_rhino.dylib",
+        "build/net6.0/lib/mac/x86_64/libpv_rhino.dylib",
+        "build/net6.0/lib/raspberry-pi/cortex-a53-aarch64/libpv_rhino.so",
+        "build/net6.0/lib/raspberry-pi/cortex-a53/libpv_rhino.so",
+        "build/net6.0/lib/raspberry-pi/cortex-a72-aarch64/libpv_rhino.so",
+        "build/net6.0/lib/raspberry-pi/cortex-a72/libpv_rhino.so",
+        "build/net6.0/lib/raspberry-pi/cortex-a76-aarch64/libpv_rhino.so",
+        "build/net6.0/lib/raspberry-pi/cortex-a76/libpv_rhino.so",
+        "build/net6.0/lib/windows/amd64/libpv_rhino.dll",
+        "build/net8.0/Rhino.targets",
+        "build/net8.0/lib/common/rhino_params.pv",
+        "build/net8.0/lib/linux/x86_64/libpv_rhino.so",
+        "build/net8.0/lib/mac/arm64/libpv_rhino.dylib",
+        "build/net8.0/lib/mac/x86_64/libpv_rhino.dylib",
+        "build/net8.0/lib/raspberry-pi/cortex-a53-aarch64/libpv_rhino.so",
+        "build/net8.0/lib/raspberry-pi/cortex-a53/libpv_rhino.so",
+        "build/net8.0/lib/raspberry-pi/cortex-a72-aarch64/libpv_rhino.so",
+        "build/net8.0/lib/raspberry-pi/cortex-a72/libpv_rhino.so",
+        "build/net8.0/lib/raspberry-pi/cortex-a76-aarch64/libpv_rhino.so",
+        "build/net8.0/lib/raspberry-pi/cortex-a76/libpv_rhino.so",
+        "build/net8.0/lib/windows/amd64/libpv_rhino.dll",
+        "build/netcoreapp3.0/Rhino.targets",
+        "build/netcoreapp3.0/lib/common/rhino_params.pv",
+        "build/netcoreapp3.0/lib/linux/x86_64/libpv_rhino.so",
+        "build/netcoreapp3.0/lib/mac/x86_64/libpv_rhino.dylib",
+        "build/netcoreapp3.0/lib/raspberry-pi/cortex-a53-aarch64/libpv_rhino.so",
+        "build/netcoreapp3.0/lib/raspberry-pi/cortex-a53/libpv_rhino.so",
+        "build/netcoreapp3.0/lib/raspberry-pi/cortex-a72-aarch64/libpv_rhino.so",
+        "build/netcoreapp3.0/lib/raspberry-pi/cortex-a72/libpv_rhino.so",
+        "build/netcoreapp3.0/lib/raspberry-pi/cortex-a76-aarch64/libpv_rhino.so",
+        "build/netcoreapp3.0/lib/raspberry-pi/cortex-a76/libpv_rhino.so",
+        "build/netcoreapp3.0/lib/windows/amd64/libpv_rhino.dll",
+        "build/netstandard2.0/Rhino.targets",
+        "build/netstandard2.0/lib/common/rhino_params.pv",
+        "build/netstandard2.0/libpv_rhino.dll",
+        "build/netstandard2.0/libpv_rhino.dylib",
+        "build/netstandard2.0/libpv_rhino.so",
+        "lib/net6.0/Rhino.dll",
+        "lib/net8.0/Rhino.dll",
+        "lib/netcoreapp3.0/Rhino.dll",
+        "lib/netstandard2.0/Rhino.dll",
+        "pv_circle_512.png",
+        "rhino.3.0.4.nupkg.sha512",
+        "rhino.nuspec"
+      ]
+    },
+    "System.Security.AccessControl/4.7.0": {
+      "sha512": "JECvTt5aFF3WT3gHpfofL2MNNP6v84sxtXxpqhLBCcDRzqsPBmHhQ6shv4DwwN2tRlzsUxtb3G9M3763rbXKDg==",
+      "type": "package",
+      "path": "system.security.accesscontrol/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net46/System.Security.AccessControl.dll",
+        "lib/net461/System.Security.AccessControl.dll",
+        "lib/net461/System.Security.AccessControl.xml",
+        "lib/netstandard1.3/System.Security.AccessControl.dll",
+        "lib/netstandard2.0/System.Security.AccessControl.dll",
+        "lib/netstandard2.0/System.Security.AccessControl.xml",
+        "lib/uap10.0.16299/_._",
+        "ref/net46/System.Security.AccessControl.dll",
+        "ref/net461/System.Security.AccessControl.dll",
+        "ref/net461/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/System.Security.AccessControl.dll",
+        "ref/netstandard1.3/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/de/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/es/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/fr/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/it/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/ja/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/ko/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/ru/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/zh-hans/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/zh-hant/System.Security.AccessControl.xml",
+        "ref/netstandard2.0/System.Security.AccessControl.dll",
+        "ref/netstandard2.0/System.Security.AccessControl.xml",
+        "ref/uap10.0.16299/_._",
+        "runtimes/win/lib/net46/System.Security.AccessControl.dll",
+        "runtimes/win/lib/net461/System.Security.AccessControl.dll",
+        "runtimes/win/lib/net461/System.Security.AccessControl.xml",
+        "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll",
+        "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.xml",
+        "runtimes/win/lib/netstandard1.3/System.Security.AccessControl.dll",
+        "runtimes/win/lib/uap10.0.16299/_._",
+        "system.security.accesscontrol.4.7.0.nupkg.sha512",
+        "system.security.accesscontrol.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Security.Principal.Windows/4.7.0": {
+      "sha512": "ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
+      "type": "package",
+      "path": "system.security.principal.windows/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net46/System.Security.Principal.Windows.dll",
+        "lib/net461/System.Security.Principal.Windows.dll",
+        "lib/net461/System.Security.Principal.Windows.xml",
+        "lib/netstandard1.3/System.Security.Principal.Windows.dll",
+        "lib/netstandard2.0/System.Security.Principal.Windows.dll",
+        "lib/netstandard2.0/System.Security.Principal.Windows.xml",
+        "lib/uap10.0.16299/_._",
+        "ref/net46/System.Security.Principal.Windows.dll",
+        "ref/net461/System.Security.Principal.Windows.dll",
+        "ref/net461/System.Security.Principal.Windows.xml",
+        "ref/netcoreapp3.0/System.Security.Principal.Windows.dll",
+        "ref/netcoreapp3.0/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/System.Security.Principal.Windows.dll",
+        "ref/netstandard1.3/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/de/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/es/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/fr/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/it/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/ja/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/ko/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/ru/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/zh-hans/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/zh-hant/System.Security.Principal.Windows.xml",
+        "ref/netstandard2.0/System.Security.Principal.Windows.dll",
+        "ref/netstandard2.0/System.Security.Principal.Windows.xml",
+        "ref/uap10.0.16299/_._",
+        "runtimes/unix/lib/netcoreapp2.0/System.Security.Principal.Windows.dll",
+        "runtimes/unix/lib/netcoreapp2.0/System.Security.Principal.Windows.xml",
+        "runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.dll",
+        "runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.xml",
+        "runtimes/win/lib/net46/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/net461/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/net461/System.Security.Principal.Windows.xml",
+        "runtimes/win/lib/netcoreapp2.0/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/netcoreapp2.0/System.Security.Principal.Windows.xml",
+        "runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.xml",
+        "runtimes/win/lib/netstandard1.3/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/uap10.0.16299/_._",
+        "system.security.principal.windows.4.7.0.nupkg.sha512",
+        "system.security.principal.windows.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Speech/9.0.1": {
+      "sha512": "/iIJryPoMQNiVzNwM94MzUq7YT/Gpjdf5iejKU5odt7NfJIqv4H7e/2FUno7irCJ1iKXjhSDo7dAOq7PDoZgyQ==",
+      "type": "package",
+      "path": "system.speech/9.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Speech.targets",
+        "lib/net462/_._",
+        "lib/net8.0/System.Speech.dll",
+        "lib/net8.0/System.Speech.xml",
+        "lib/net9.0/System.Speech.dll",
+        "lib/net9.0/System.Speech.xml",
+        "lib/netstandard2.0/System.Speech.dll",
+        "lib/netstandard2.0/System.Speech.xml",
+        "runtimes/win/lib/net8.0/System.Speech.dll",
+        "runtimes/win/lib/net8.0/System.Speech.xml",
+        "runtimes/win/lib/net9.0/System.Speech.dll",
+        "runtimes/win/lib/net9.0/System.Speech.xml",
+        "system.speech.9.0.1.nupkg.sha512",
+        "system.speech.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Vosk/0.3.38": {
+      "sha512": "W/me6nwF7fq9uWVmqbmWvPx3DjhMSzb9D85IZa0FUg2PIxcWjfG55vYHBc+9xCuNL/zohIBRYTKiP4itnMU3ww==",
+      "type": "package",
+      "path": "vosk/0.3.38",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Vosk.targets",
+        "build/lib/linux-x64/libvosk.so",
+        "build/lib/osx-universal/libvosk.dylib",
+        "build/lib/win-x64/libgcc_s_seh-1.dll",
+        "build/lib/win-x64/libstdc++-6.dll",
+        "build/lib/win-x64/libvosk.dll",
+        "build/lib/win-x64/libwinpthread-1.dll",
+        "lib/netstandard2.0/Vosk.dll",
+        "vosk.0.3.38.nupkg.sha512",
+        "vosk.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net9.0": [
+      "AudioControl >= 1.0.1",
+      "NAudio >= 2.2.1",
+      "Picovoice >= 3.0.4",
+      "Porcupine >= 3.0.5",
+      "System.Speech >= 9.0.1",
+      "Vosk >= 0.3.38"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Admin\\.nuget\\packages\\": {},
+    "D:\\Programs\\Visual Studio\\STools\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\Projects\\Pulse\\main\\main.csproj",
+      "projectName": "main",
+      "projectPath": "D:\\Projects\\Pulse\\main\\main.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "D:\\Projects\\Pulse\\main\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "D:\\Programs\\Visual Studio\\STools\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net9.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.100"
+    },
+    "frameworks": {
+      "net9.0": {
+        "targetAlias": "net9.0",
+        "dependencies": {
+          "AudioControl": {
+            "target": "Package",
+            "version": "[1.0.1, )"
+          },
+          "NAudio": {
+            "target": "Package",
+            "version": "[2.2.1, )"
+          },
+          "Picovoice": {
+            "target": "Package",
+            "version": "[3.0.4, )"
+          },
+          "Porcupine": {
+            "target": "Package",
+            "version": "[3.0.5, )"
+          },
+          "System.Speech": {
+            "target": "Package",
+            "version": "[9.0.1, )"
+          },
+          "Vosk": {
+            "target": "Package",
+            "version": "[0.3.38, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
