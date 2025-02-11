@@ -5,6 +5,45 @@ using NAudio.Wave;
 public static class ProcessCom {
     static Random _random = new Random();
 
+    static void PlaySound(string filePath) {
+        try {
+            using (var audioFile = new AudioFileReader(filePath))
+            using (var outputDevice = new WaveOutEvent()) {
+                outputDevice.Init(audioFile);
+                outputDevice.Play();
+
+                while (outputDevice.PlaybackState == PlaybackState.Playing) {
+                    Thread.Sleep(1);
+                }
+            }
+        }
+        catch (Exception ex) {
+            Console.WriteLine("Ошибка воспроизведения звука: " + ex.Message);
+        }
+    }
+
+    static string RSoundFile() {
+        string[] okSir = {
+            "D:\\Projects\\Pulse\\jarvisVoice\\jarvis_ok1.wav",
+            "D:\\Projects\\Pulse\\jarvisVoice\\jarvis_ok2.wav",
+            "D:\\Projects\\Pulse\\jarvisVoice\\jarvis_ok3.wav",
+            "D:\\Projects\\Pulse\\jarvisVoice\\jarvis_ok4.wav"
+        };
+        int index = _random.Next(okSir.Length);
+        return okSir[index];
+    }
+
+    static string RSoundFileToSeyHi() {
+        // Новое приветствие
+        string[] sayHi = {
+            "D:\\Projects\\Pulse\\jarvisVoice\\jarvis_greet1.wav",
+            "D:\\Projects\\Pulse\\jarvisVoice\\jarvis_greet2.wav",
+            "D:\\Projects\\Pulse\\jarvisVoice\\jarvis_greet3.wav"
+        };
+        int index = _random.Next(sayHi.Length);
+        return sayHi[index];
+    }
+
     static public void ConfS() {
         PlaySound(RSoundFile());
     }
@@ -31,6 +70,11 @@ public static class ProcessCom {
         PlaySound(thx);
     }
 
+    static public void BsT() {
+        string bst = "D:\\Projects\\Pulse\\jarvisVoice\\jarvis_booster.wav";
+        PlaySound(bst);
+    }
+
     static public void WhT() {
         string what = "D:\\Projects\\Pulse\\jarvisVoice\\jarvis_not_found.wav";
         PlaySound(what);
@@ -44,45 +88,5 @@ public static class ProcessCom {
     static public void InF() {
         string info = "D:\\Projects\\Pulse\\jarvisVoice\\jarvis_info.wav";
         PlaySound(info);
-    }
-
-
-    static string RSoundFile() {
-        string[] okSir = {
-            "D:\\Projects\\Pulse\\jarvisVoice\\jarvis_ok1.wav",
-            "D:\\Projects\\Pulse\\jarvisVoice\\jarvis_ok2.wav",
-            "D:\\Projects\\Pulse\\jarvisVoice\\jarvis_ok3.wav",
-            "D:\\Projects\\Pulse\\jarvisVoice\\jarvis_ok4.wav"
-        };
-        int index = _random.Next(okSir.Length);
-        return okSir[index];
-    }
-
-    static string RSoundFileToSeyHi() {
-        // Новое приветствие
-        string[] sayHi = {
-            "D:\\Projects\\Pulse\\jarvisVoice\\jarvis_greet1.wav",
-            "D:\\Projects\\Pulse\\jarvisVoice\\jarvis_greet2.wav",
-            "D:\\Projects\\Pulse\\jarvisVoice\\jarvis_greet3.wav"
-        };
-        int index = _random.Next(sayHi.Length);
-        return sayHi[index];
-    }
-
-    static void PlaySound(string filePath) {
-        try {
-            using (var audioFile = new AudioFileReader(filePath))
-            using (var outputDevice = new WaveOutEvent()) {
-                outputDevice.Init(audioFile);
-                outputDevice.Play();
-
-                while (outputDevice.PlaybackState == PlaybackState.Playing) {
-                    Thread.Sleep(100);
-                }
-            }
-        }
-        catch (Exception ex) {
-            Console.WriteLine("Ошибка воспроизведения звука: " + ex.Message);
-        }
     }
 }
