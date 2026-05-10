@@ -1,202 +1,173 @@
 using Vosk;
 using NAudio.Wave;
 using System.Diagnostics;
-using VolControl;
-using Sound;
-using Pv;
+using VolControl; 
+using Sound;     
+using Pv;         
 using System.IO;
-using System.Timers;
+using System.Linq;
+using System.Collections.Generic;
 
 class Program
 {
+
     static bool _isListening;
     static System.Timers.Timer _listeningTimer;
     
 
     static readonly string AppPath = AppDomain.CurrentDomain.BaseDirectory;
 
-    static void Main()
+    static readonly Dictionary<string[], Action> Commands = new Dictionary<string[], Action>
     {
+        // --- Браузер та веб ---
+        { new[] { "браузер", "гугл", "хром" }, () => RunApp("chrome.exe", "chrome://newtab") },
+        { new[] { "ютуб", "ютюб" }, () => RunApp("explorer", "https://www.youtube.com/") },
+        { new[] { "музыку", "музыка" }, () => RunApp("chrome.exe", "https://music.youtube.com/playlist?list=LM") },
+
+        // --- Steam та ігри (через AHK скрипти) ---
+        { new[] { "открой с тим", "включи с тим", "запусти с тим" }, () => RunTool(@"steam\ahk\openSteam.exe") },
+        { new[] { "закрой с тим", "выключи с тим" }, () => RunTool(@"steam\ahk\closeSteam.exe") },
+
+        // --- Керування звуком (Issue #3: SRP) ---
+        { new[] { "громче", "погромче", "добавь громкость" }, () => { VolumeControl.AddVol(); ProcessCom.ConfS(); } },
+        { new[] { "тише", "потише", "сделай тише" }, () => { VolumeControl.MinVol(); ProcessCom.ConfS(); } },
+        { new[] { "мут", "выключи звук", "тихо" }, () => { VolumeControl.MuteVolume(); ProcessCom.ConfS(); } },
+        { new[] { "говорить", "ан мут" }, () => { VolumeControl.UnMuteVolume(); ProcessCom.ConfS(); } },
+
+        // --- Системні утиліти ---
+        { new[] { "смени язык", "смени раскладку", "переключи язык" }, () => RunTool(@"windows\ahk\setLang.exe") },
+        { new[] { "скриншот", "скрин", "сделай скрин" }, () => RunTool(@"windows\ahk\screenshot.exe") },
+        { new[] { "корзину", "мусор" }, () => RunTool(@"windows\ahk\emptyTrash.exe") },
+        { new[] { "диспетчер задач", "таск менеджер" }, () => RunTool(@"windows\ahk\taskManager.exe") },
+        { new[] { "сверни окна", "рабочий стол" }, () => RunTool(@"windows\ahk\rollWindows.exe") },
+        { new[] { "сон", "спать" }, () => RunTool(@"windows\ahk\sleep.exe") },
+
+        // --- Інше ---
+        { new[] { "инфо", "информация" }, () => ProcessCom.InF() },
+        { new[] { "спасибо", "молодец" }, () => ProcessCom.ThX() },
+        
+        // --- Вимкнення програми ---
+        { new[] { "стой", "стоп", "выключись", "отключись" }, () => { 
+            ProcessCom.Pof(); 
+            Thread.Sleep(800); 
+            Environment.Exit(0); 
+        } }
+    };
+
+    static void Main(string[] args)
+    {
+
         _listeningTimer = new System.Timers.Timer(10000);
         _listeningTimer.Elapsed += (s, e) => {
-            _isListening = false;
-            Console.WriteLine("--- Режим очікування (тайм-аут) ---");
+            if (_isListening) {
+                _isListening = false;
+                Console.WriteLine("--- Тайм-аут: перехід у режим очікування ключового слова ---");
+            }
         };
         _listeningTimer.AutoReset = false;
 
         try
         {
-
+            // Динамічні шляхи (Issue #1)
             string modelPath = Path.Combine(AppPath, "Models", "vosk-model-small-ru-0.22");
             string ppnPath = Path.Combine(AppPath, "Resources", "Astra_en_windows_v3_0_0.ppn");
+            const string accessKey = "ТВІЙ_PICOVOICE_ACCESS_KEY"; 
 
-            const string accessKey = "YOUR_PICOVOICE_API_KEY"; 
 
-            // Перевірка наявності критичних файлів перед стартом
-            if (!Directory.Exists(modelPath)) throw new DirectoryNotFoundException($"Модель не знайдено: {modelPath}");
-            if (!File.Exists(ppnPath)) throw new FileNotFoundException($"Файл активації не знайдено: {ppnPath}");
-
-            // Ініціалізація Vosk
             Model model = new Model(modelPath);
             VoskRecognizer recognizer = new VoskRecognizer(model, 16000);
 
-            // Ініціалізація Porcupine
             using (Porcupine handle = Porcupine.FromKeywordPaths(accessKey, new List<string> { ppnPath }))
+            using (var waveIn = new WaveInEvent())
             {
-                using (var waveIn = new WaveInEvent())
+                waveIn.DeviceNumber = 0;
+                waveIn.WaveFormat = new WaveFormat(16000, 1);
+                waveIn.BufferMilliseconds = (int)((handle.FrameLength / (double)handle.SampleRate) * 1000);
+
+                short[] audioFrame = new short[handle.FrameLength];
+
+                waveIn.DataAvailable += (sender, e) =>
                 {
-                    waveIn.DeviceNumber = 0;
-                    waveIn.WaveFormat = new WaveFormat(16000, 1);
-                    waveIn.BufferMilliseconds = (int)((handle.FrameLength / (double)handle.SampleRate) * 1000);
-
-                    short[] audioFrame = new short[handle.FrameLength];
-
-                    waveIn.DataAvailable += (sender, e) =>
+                    Buffer.BlockCopy(e.Buffer, 0, audioFrame, 0, handle.FrameLength * 2);
+                    
+                    if (handle.Process(audioFrame) >= 0 && !_isListening)
                     {
+                        Console.WriteLine("[!] Астра активована. Слухаю...");
+                        ProcessCom.SayHi();
+                        _isListening = true;
+                        _listeningTimer.Start(); 
+                    }
 
-                        Buffer.BlockCopy(e.Buffer, 0, audioFrame, 0, handle.FrameLength * 2);
-                        var keywordIndex = handle.Process(audioFrame);
-
-                        if (keywordIndex >= 0 && !_isListening)
+                    if (_isListening && recognizer.AcceptWaveform(e.Buffer, e.BytesRecorded))
+                    {
+                        string result = ExtractTextFromJson(recognizer.Result()).ToLower();
+                        
+                        if (!string.IsNullOrWhiteSpace(result))
                         {
-                            Console.WriteLine("--- Слухаю команду... ---");
-                            ProcessCom.SayHi();
-                            _isListening = true;
-                            _listeningTimer.Start(); // Запускаємо відлік 10 секунд
+                            Console.WriteLine($">> Ви сказали: {result}");
+                            ProcessCommand(result);
+                            
+                            _isListening = false;
+                            _listeningTimer.Stop();
                         }
+                    }
+                };
 
-                        if (_isListening && recognizer.AcceptWaveform(e.Buffer, e.BytesRecorded))
-                        {
-                            string resultRaw = recognizer.Result();
-
-                            string text = ExtractTextFromJson(resultRaw).ToLower();
-
-                            if (!string.IsNullOrWhiteSpace(text))
-                            {
-                                Console.WriteLine($"Команда: {text}");
-                                ProcessCommand(text);
-                                
-                                _isListening = false; 
-                                _listeningTimer.Stop(); // Скидаємо таймер після виконання
-                            }
-                        }
-                    };
-
-                    waveIn.StartRecording();
-                    Console.WriteLine("Голосовий асистент 'Астра' готовий до роботи.");
-                    ProcessCom.StartHi();
-                    
-                    Console.WriteLine("Натисніть Enter для виходу...");
-                    Console.ReadLine();
-                    
-                    waveIn.StopRecording();
-                }
+                waveIn.StartRecording();
+                Console.WriteLine("=== Ассистент Астра запущена ===");
+                ProcessCom.StartHi();
+                
+                Console.WriteLine("Натисніть Enter для завершення...");
+                Console.ReadLine();
             }
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Критична помилка: {ex.Message}");
+            Console.ReadKey();
         }
     }
 
     static void ProcessCommand(string text)
     {
+        bool isExecuted = false;
 
-        void RunTool(string relativePath)
+        foreach (var commandEntry in Commands)
         {
-            string fullPath = Path.Combine(AppPath, "Commands", relativePath);
-            if (File.Exists(fullPath))
+ 
+            if (commandEntry.Key.Any(k => text.Contains(k)))
             {
-                Process.Start(new ProcessStartInfo(fullPath) { UseShellExecute = true });
-                ProcessCom.ConfS();
-            }
-            else
-            {
-                Console.WriteLine($"Помилка: Файл не знайдено за шляхом {fullPath}");
+                commandEntry.Value.Invoke();
+                isExecuted = true;
+                break;
             }
         }
 
-        // --- ЛОГІКА КОМАНД ---
-
-        // Браузер та інтернет
-        if (ContainsAny(text, "открой браузер", "запусти браузер", "гугл", "хром"))
+        if (!isExecuted)
         {
-            ProcessCom.ConfS();
-            Process.Start(new ProcessStartInfo("chrome.exe", "chrome://newtab") { UseShellExecute = true });
-        }
-        else if (ContainsAny(text, "ютуб", "ютюб"))
-        {
-            ProcessCom.ConfS();
-            Process.Start(new ProcessStartInfo("explorer", "https://www.youtube.com/") { UseShellExecute = true });
-        }
-
-        // Стім (через AHK)
-        else if (ContainsAny(text, "открой с тим", "включи с тим", "запусти с тим"))
-        {
-            RunTool(@"steam\ahk\openSteam.exe");
-        }
-        else if (ContainsAny(text, "закрой с тим", "выключи с тим"))
-        {
-            RunTool(@"steam\ahk\closeSteam.exe");
-        }
-
-        // Звук
-        else if (ContainsAny(text, "громче", "погромче", "добавь громкость"))
-        {
-            VolumeControl.AddVol();
-            ProcessCom.ConfS();
-        }
-        else if (ContainsAny(text, "тише", "потише", "сделай тише"))
-        {
-            VolumeControl.MinVol();
-            ProcessCom.ConfS();
-        }
-        else if (ContainsAny(text, "мут", "выключи звук", "тихо"))
-        {
-            VolumeControl.MuteVolume();
-            ProcessCom.ConfS();
-        }
-
-        else if (ContainsAny(text, "смени язык", "смени раскладку"))
-        {
-            RunTool(@"windows\ahk\setLang.exe");
-        }
-        else if (ContainsAny(text, "скриншот", "сделай скрин"))
-        {
-            RunTool(@"windows\ahk\screenshot.exe");
-        }
-        else if (ContainsAny(text, "очисти корзину", "удали мусор"))
-        {
-            RunTool(@"windows\ahk\emptyTrash.exe");
-        }
-        else if (ContainsAny(text, "диспетчер задач"))
-        {
-            RunTool(@"windows\ahk\taskManager.exe");
-        }
-
-        else if (ContainsAny(text, "стой", "стоп", "выключись"))
-        {
-            ProcessCom.Pof();
-            Thread.Sleep(500);
-            Environment.Exit(0);
-        }
-        else if (ContainsAny(text, "инфо"))
-        {
-            ProcessCom.InF();
-        }
-        else
-        {
-            ProcessCom.WhT(); 
+            Console.WriteLine("Команда не розпізнана.");
+            ProcessCom.WhT();
         }
     }
 
-    static bool ContainsAny(string text, params string[] keywords)
+
+    static void RunApp(string fileName, string args = "")
     {
-        foreach (var key in keywords)
-        {
-            if (text.Contains(key)) return true;
+        try {
+            Process.Start(new ProcessStartInfo(fileName, args) { UseShellExecute = true });
+            ProcessCom.ConfS();
+        } catch { Console.WriteLine($"Не вдалося запустити: {fileName}"); }
+    }
+
+    static void RunTool(string relativePath)
+    {
+        string fullPath = Path.Combine(AppPath, "Commands", relativePath);
+        if (File.Exists(fullPath)) {
+            Process.Start(new ProcessStartInfo(fullPath) { UseShellExecute = true });
+            ProcessCom.ConfS();
+        } else {
+            Console.WriteLine($"Файл не знайдено: {fullPath}");
         }
-        return false;
     }
 
     static string ExtractTextFromJson(string json)
@@ -204,8 +175,6 @@ class Program
 
         int start = json.IndexOf("\"text\" : \"") + 10;
         int end = json.LastIndexOf("\"");
-        if (start > 9 && end > start)
-            return json.Substring(start, end - start);
-        return "";
+        return (start > 9 && end > start) ? json.Substring(start, end - start) : "";
     }
-}﻿
+}
